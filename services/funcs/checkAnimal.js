@@ -68,7 +68,8 @@ function checkAnimalIntent(entities) {
 
       let resp = {
         answer: rows[0].desc,
-        image: []
+        image: [],
+        vocal: []
       }
 
       db('animalImage').select('*').where('animalId', rows[0].id).then((imgRows) => {
@@ -77,7 +78,16 @@ function checkAnimalIntent(entities) {
 
           resp.image = _.map(imgRows, 'imagePath')
         }
-        resolve(resp)
+
+        db('animalAudio').select('*').where('animalId', rows[0].id).then((vocalRows) => {
+
+          if (vocalRows && vocalRows.length > 0) {
+
+            resp.vocal = _.map(vocalRows, 'audioPath')
+          }
+
+          resolve(resp)
+        })
       })
     })
   })
