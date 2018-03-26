@@ -6,6 +6,7 @@ const path = require('path')
 const router = express.Router()
 const textSemanticService = require('../services/aiui/textSementic')
 const audioSemanticService = require('../services/aiui/audioSementic')
+const ttsService = require('../services/aiui/tts')
 const logQuery = require('../services/logService').logQuery
 const parseResp = require('../services/funcs/').parseResp
 const multer = require('multer')
@@ -119,6 +120,14 @@ router.get('/test', function (req, res) {
     res.send('success')
   }).catch((err) => {
     res.send('fail')
+  })
+})
+
+router.get('/testtts', function (req, res) {
+
+  ttsService('你想学习什么小动物呢？').then(() => {
+
+    res.send('finish')
   })
 })
 

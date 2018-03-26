@@ -8,6 +8,14 @@
     "AUDIO_SEMANTIC_ENDPOINT": "/v1/aiui/v1/voice_semantic",
     "SCENE": "main"
   }, 
+  "aiuiTtsConfig": {
+    "APP_NAME": "wtms语音合成_web",
+    "APP_ID": "4CC5779A",
+    "API_KEY": "b60976ac5684d77194a61822550953ca",
+    "AIUI_HOST": "http://api.xfyun.cn",
+    "TTS_ENDPOINT": "/v1/service/v1/tts",
+    "SCENE": "main"
+  },
   "programConfig": {
 
   }
